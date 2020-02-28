@@ -19,7 +19,7 @@ function Login({ loginFormValues, setLoginFormValues }) {
       .post("http://localhost:5000/api/login", loginFormValues)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
-        history.push("/bubble")
+        history.push("/bubble");
       })
       .catch(err => {
         console.log(err);

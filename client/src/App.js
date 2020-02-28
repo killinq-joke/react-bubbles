@@ -32,7 +32,7 @@ function App() {
   );
 }
 
-function PrivateRoute({children, ...rest}) {
+function PrivateRoute({ children, ...rest }) {
   const isTokenExist = !!localStorage.getItem("token");
   return (
     <Route {...rest}>{isTokenExist ? children : <Redirect to="/" />}</Route>

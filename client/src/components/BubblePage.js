@@ -10,14 +10,14 @@ const BubblePage = () => {
   // set that data to the colorList state property
   useEffect(() => {
     axios()
-    .get("http://localhost:5000/api/colors")
-    .then(res => {
-      setColorList(res.data)
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  }, [])
+      .get("http://localhost:5000/api/colors")
+      .then(res => {
+        setColorList(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <>
