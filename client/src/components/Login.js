@@ -1,14 +1,40 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+import * as actionCreators from "../state/actionCreators";
+import { connect } from "react-redux";
 
-const Login = () => {
+const Login = ({ loginValues, inputChange, onLogin }) => {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
+  const history = useHistory()
+
   return (
     <>
       <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
+      
+
+      <form>
+        <label>
+          username
+          <input name="username" onChange={inputChange} />
+        </label>
+        <label>
+          password
+          <input name="password" onChange={inputChange} />
+        </label>
+        <button type="button" onClick={(e) => onLogin(loginValues, history)}>
+          LOGIN
+        </button>
+      </form>
     </>
   );
 };
 
-export default Login;
+function mapStateToProps(state) {
+  return {
+    loginValues: state.loginValues,
+  };
+}
+
+export default connect(mapStateToProps, actionCreators)(Login);

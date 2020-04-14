@@ -121,7 +121,7 @@ app.get("/api/colors", authenticator, (req, res) => {
 });
 
 app.post("/api/colors", authenticator, (req, res) => {
-  if (req.body.color !== undefined && req.body.code !== undefined) {
+  if (req.body.color !== undefined && req.body.code != undefined) {
     const newcolor = req.body;
     newcolor.id = nextId;
     colors.push(newcolor);
